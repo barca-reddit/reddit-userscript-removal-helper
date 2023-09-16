@@ -1,0 +1,69 @@
+{
+    "name": "reddit-userscript-removal-helper",
+    "author": "decho",
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "Violentmonkey userscript. Creates a helper modal for removing front-page content. Written in Typescript and React.",
+    "keywords": [
+        "typescript",
+        "react",
+        "violentmonkey",
+        "reddit",
+        "userscript"
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "node esbuild.js --dev --build",
+        "watch": "node esbuild.js --dev --watch",
+        "build:prod": "node esbuild.js --prod --build",
+        "watch:prod": "node esbuild.js --prod --watch",
+        "check": "tsc",
+        "release": "npm run build:prod && release-it",
+        "generate-schema": "typescript-json-schema ./tsconfig.json RuleJSONSchemaType --out=./rules/schema.json --required --noExtraProps"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.17",
+        "@types/react": "^18.2.21",
+        "@types/react-dom": "^18.2.7",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
+        "@violentmonkey/types": "^0.1.5",
+        "autoprefixer": "^10.4.15",
+        "chokidar": "^3.5.3",
+        "esbuild": "^0.19.3",
+        "eslint-plugin-react": "^7.33.2",
+        "express": "^4.18.2",
+        "postcss": "^8.4.29",
+        "postcss-import": "^15.1.0",
+        "prettier": "^3.0.3",
+        "prettier-plugin-tailwindcss": "^0.5.4",
+        "tailwindcss": "^3.3.3",
+        "type-fest": "^4.3.1",
+        "typescript": "^5.2.2",
+        "typescript-json-schema": "^0.61.0"
+    },
+    "dependencies": {
+        "clsx": "^2.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "zustand": "^4.4.1"
+    },
+    "release-it": {
+        "git": {
+            "requireBranch": "master",
+            "commitMessage": "chore: release v${version}",
+            "changelog": "git log --first-parent --pretty=format:\"* %s (%h)\" ${from}...${to} | sort"
+        },
+        "npm": {
+            "publish": false
+        },
+        "github": {
+            "release": true,
+            "host": "github.com"
+        },
+        "hooks": {
+            "before:bump": "node ./static/version-bump.js --version=${version}"
+        },
+        "verbose": 2
+    }
+}

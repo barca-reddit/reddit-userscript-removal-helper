@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SubredditRule": {
+            "anyOf": [
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "description": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "number"
+                        },
+                        "linkType": {
+                            "enum": ["open-thread", "transfer-thread"],
+                            "type": "string"
+                        },
+                        "message": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "body": {
+                                    "type": "string"
+                                },
+                                "fallback": {
+                                    "type": "string"
+                                },
+                                "header": {
+                                    "type": "string"
+                                }
+                            },
+                            "propertyOrder": ["header", "body", "fallback"],
+                            "required": ["body", "fallback", "header"],
+                            "type": "object"
+                        },
+                        "name": {
+                            "type": ["null", "string"]
+                        },
+                        "type": {
+                            "enum": ["comment", "post"],
+                            "type": "string"
+                        }
+                    },
+                    "required": ["description", "id", "linkType", "message", "name", "type"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "description": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "number"
+                        },
+                        "linkType": {
+                            "const": "duplicate-thread",
+                            "type": "string"
+                        },
+                        "message": {
+                            "additionalProperties": false,
+                            "properties": {
+                                "body": {
+                                    "type": "string"
+                                },
+                                "fallback": {
+                                    "type": "null"
+                                },
+                                "header": {
+                                    "type": "string"
+                                }
+                            },
+                            "propertyOrder": ["header", "body", "fallback"],
+                            "required": ["body", "fallback", "header"],
+                            "type": "object"
+                        },
+                        "name": {
+                            "type": ["null", "string"]
+                        },
+                        "type": {
+                            "enum": ["comment", "post"],
+                            "type": "string"
+                        }
+                    },
+                    "required": ["description", "id", "linkType", "message", "name", "type"],
+                    "type": "object"
+                },
+                {
+                    "additionalProperties": false,
+                    "properties": {
+                        "description": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "number"
+                        },
+                        "linkType": {
+                            "type": "null"
+                        },
+                        "message": {
+                            "anyOf": [
+                                {
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "body": {
+                                            "type": "string"
+                                        },
+                                        "fallback": {
+                                            "type": "null"
+                                        },
+                                        "header": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "propertyOrder": ["header", "body", "fallback"],
+                                    "required": ["body", "fallback", "header"],
+                                    "type": "object"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "name": {
+                            "type": ["null", "string"]
+                        },
+                        "type": {
+                            "enum": ["comment", "post"],
+                            "type": "string"
+                        }
+                    },
+                    "required": ["description", "id", "linkType", "message", "name", "type"],
+                    "type": "object"
+                }
+            ]
+        }
+    },
+    "items": {
+        "$ref": "#/definitions/SubredditRule"
+    },
+    "type": "array"
+}

@@ -1,0 +1,9 @@
+{
+    "css.lint.unknownAtRules": "ignore",
+    "json.schemas": [
+        {
+            "fileMatch": ["rules/**/*.json", "!/rules/schema.json"],
+            "url": "./rules/schema.json"
+        }
+    ]
+}

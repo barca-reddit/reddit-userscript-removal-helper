@@ -1,0 +1,5 @@
+node_modules
+rules/*
+!rules/schema.json
+dist/script.dev.user.js
+dist/style.dev.user.css

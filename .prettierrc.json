@@ -1,0 +1,11 @@
+{
+    "enable": true,
+    "printWidth": 140,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "singleAttributePerLine": true,
+    "semi": true,
+    "tailwindConfig": "./tailwind.config.js",
+    "plugins": ["prettier-plugin-tailwindcss"]
+}

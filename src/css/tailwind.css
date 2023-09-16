@@ -1,0 +1,141 @@
+@import './fonts.css';
+/* @import 'tailwindcss/base'; */
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+#root {
+    @apply relative z-[10000001] box-border font-inter text-base;
+}
+
+/** @see https://stackoverflow.com/a/25516535/3258251 */
+#root * {
+    @apply box-border font-inter antialiased;
+    transform: translateZ(0);
+}
+
+#root input,
+#root textarea {
+    @apply m-0 appearance-none;
+}
+
+#root input[type='radio'] {
+    @apply h-4 w-4 rounded-full border-2 border-solid border-neutral-400 bg-neutral-50;
+}
+
+#root input[type='radio']:checked {
+    @apply border-indigo-400;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23818cf8" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Z"%2F%3E%3C%2Fsvg%3E');
+    background-size: 10px 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#root input[type='radio']:disabled {
+    @apply border-neutral-200 bg-neutral-50;
+}
+
+#root input[type='radio']:checked:disabled {
+    @apply border-neutral-200 bg-neutral-50;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23e5e5e5" d="M12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Z"%2F%3E%3C%2Fsvg%3E');
+    background-size: 10px 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#root [data-group='radio']:hover {
+    @apply underline decoration-neutral-200;
+}
+
+#root [data-group='radio']:hover input {
+    @apply opacity-75;
+}
+
+#root [data-group='radio'][data-disabled='true'] {
+    @apply pointer-events-none text-neutral-400;
+}
+
+#root input[type='checkbox'] {
+    @apply h-4 w-4 rounded border-2 border-solid border-neutral-400;
+}
+
+/** @link http://icon-sets.iconify.design/pajamas/check-xs/ */
+#root input[type='checkbox']:checked {
+    @apply border-indigo-400 bg-indigo-400;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath fill="%23fafafa" fill-rule="evenodd" d="M9.53 3.22a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-1.5-1.5a.75.75 0 0 1 1.06-1.06l.97.97l3.97-3.97a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"%2F%3E%3C%2Fsvg%3E');
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#root input[type='checkbox']:disabled {
+    @apply border-neutral-200 bg-neutral-200;
+}
+
+#root [data-group='checkbox']:hover * {
+    @apply underline decoration-neutral-200;
+}
+
+#root [data-group='checkbox'][data-disabled='true'] {
+    @apply pointer-events-none text-neutral-400;
+}
+
+#root [data-group='checkbox'][data-disabled='true'] input[type='checkbox']:not(:checked) {
+    @apply bg-neutral-50;
+}
+
+#root input[type='text'] {
+    @apply rounded-lg border-2 border-solid border-neutral-200 bg-neutral-50 p-2 text-xs text-neutral-700 focus:border-indigo-400 focus:outline-none;
+}
+
+#root input[type='text']:not(:focus, :active):hover {
+    @apply border-indigo-200;
+}
+
+#root input[type='text']:disabled {
+    @apply bg-neutral-100 text-neutral-400;
+}
+
+#root [data-group='text'][data-disabled='true'] {
+    @apply pointer-events-none text-neutral-400;
+}
+
+#root textarea {
+    @apply resize-y rounded-lg border-2 border-solid border-neutral-200 bg-neutral-50 p-2 text-xs text-neutral-700 focus:border-indigo-400 focus:outline-none;
+}
+
+#root textarea:disabled {
+    @apply bg-neutral-100 text-neutral-400;
+}
+
+#root textarea:not(:focus, :active, :disabled):hover {
+    @apply border-indigo-200;
+}
+
+#root textarea[data-invalid='true'] {
+    @apply border-rose-400;
+}
+
+#root [data-group='button'][data-disabled='true'] {
+    @apply pointer-events-none text-neutral-400;
+}
+
+#root [data-disabled='true'] svg {
+    @apply opacity-50;
+}
+
+#root ::-moz-selection {
+    @apply bg-indigo-500 text-neutral-50;
+}
+
+#root ::selection {
+    @apply bg-indigo-500 text-neutral-50;
+}
+
+#root .disable-animations,
+#root .disable-animations *:not(.animate-loader) {
+    @apply animate-none;
+}
+
+.mod-removed {
+    @apply line-through decoration-2 opacity-25;
+}

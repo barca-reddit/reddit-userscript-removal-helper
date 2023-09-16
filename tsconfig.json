@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "target": "ESNext",
+
+        "forceConsistentCasingInFileNames": true,
+        "allowUnreachableCode": true,
+        "noErrorTruncation": true,
+
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "jsx": "react-jsx",
+
+        "strict": true,
+        "noEmit": true,
+        "rootDir": "./src",
+        "outDir": "./dist/",
+        "types": ["@violentmonkey/types"]
+    },
+    "include": ["./src"],
+    "exclude": ["**/node_modules", "**/.*/"]
+}
