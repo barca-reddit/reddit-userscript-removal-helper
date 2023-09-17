@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { Button, Footer, Header, Page } from '../components/index.js';
+import { Button, Footer, Header, Page, Icon } from '../components/index.js';
 import { useStore, Reddit } from '../helpers/index.js';
 import type { SubredditRule } from '../types/index.js';
-import { Icon } from '../components/index.js';
 
 type RuleListProps = {
     list: SubredditRule[],
@@ -42,7 +41,6 @@ const RuleList = ({ list, selectedRule, disabled }: RuleListProps) => {
 };
 
 export const Main = () => {
-    console.log('Main rendered');
     const [post, selectedRule, settings, openThread, transferThread, isFetching] =
         useStore((state) =>
             [state.post, state.selectedRule, state.settings, state.openThread, state.transferThread, state.isFetching]);
