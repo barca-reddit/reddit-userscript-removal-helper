@@ -57,7 +57,7 @@ export class Reddit {
     public static async removePost(postId: string) {
         try {
             await request({
-                url: 'https://www.reddit.com/api/remove',
+                url: '/api/remove',
                 options: {
                     method: 'post',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
@@ -79,7 +79,7 @@ export class Reddit {
     public static async submitComment(threadId: string, text: string) {
         try {
             const res = await request<RedditApi.CommentSubmit>({
-                url: 'https://www.reddit.com/api/comment',
+                url: '/api/comment',
                 responseType: 'json',
                 options: {
                     method: 'post',
@@ -103,7 +103,7 @@ export class Reddit {
     public static async distinguishComment(commentId: string) {
         try {
             await request({
-                url: 'https://www.reddit.com/api/distinguish/yes',
+                url: '/api/distinguish/yes',
                 options: {
                     method: 'post',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
@@ -123,7 +123,7 @@ export class Reddit {
     public static async lockComment(commentId: string) {
         try {
             await request({
-                url: 'https://www.reddit.com/api/lock',
+                url: '/api/lock',
                 options: {
                     method: 'post',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
@@ -142,7 +142,7 @@ export class Reddit {
     public static async fetchRules() {
         try {
             const res = await request<RedditApi.BotWikiPage>({
-                url: 'https://www.reddit.com/r/Barca/wiki/bot.json',
+                url: '/r/Barca/wiki/bot.json',
                 responseType: 'json',
             });
 
@@ -158,7 +158,7 @@ export class Reddit {
     public static async fetchOpenThread() {
         try {
             const res = await request<RedditApi.SearchResults>({
-                url: 'https://www.reddit.com/r/barca/search.json?q=self:true%20AND%20flair:%22Open%20Thread%22%20AND%20(NOT%20author:Automoderator)&sort=new&restrict_sr=true&limit=1',
+                url: '/r/barca/search.json?q=self:true%20AND%20flair:%22Open%20Thread%22%20AND%20(NOT%20author:Automoderator)&sort=new&restrict_sr=true&limit=1',
                 responseType: 'json',
             });
 
@@ -172,7 +172,7 @@ export class Reddit {
     public static async fetchTransferThread() {
         try {
             const res = await request<RedditApi.SearchResults>({
-                url: 'https://www.reddit.com/r/barca/search.json?q=self:true%20AND%20flair:%22Transfer%20Talk%20Thread%22%20AND%20(NOT%20author:Automoderator)&sort=new&restrict_sr=true&limit=1',
+                url: '/r/barca/search.json?q=self:true%20AND%20flair:%22Transfer%20Talk%20Thread%22%20AND%20(NOT%20author:Automoderator)&sort=new&restrict_sr=true&limit=1',
                 responseType: 'json',
             });
 
