@@ -2,7 +2,7 @@
 // @name            Reddit Userscript Removal Helper
 // @namespace       reddit-userscript-removal-helper
 // @author          decho
-// @version         1.0.2
+// @version         1.0.3
 // @description     Violentmonkey userscript. Creates a helper modal for removing front-page content. Written in Typescript and React.
 // @homepageURL     https://github.com/barca-reddit/reddit-userscript-removal-helper
 // @downloadURL     https://raw.githubusercontent.com/barca-reddit/reddit-userscript-removal-helper/master/dist/script.user.js
