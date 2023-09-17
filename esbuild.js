@@ -156,7 +156,7 @@ class Compiler {
                     this.buildScript(),
                     this.buildCss(),
                 ]);
-                this.copyLogo()
+                await this.copyLogo()
             })
     }
 
@@ -165,7 +165,7 @@ class Compiler {
             this.buildScript(),
             this.buildCss(),
         ]);
-        this.copyLogo()
+        await this.copyLogo()
     }
 }
 
